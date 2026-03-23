@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/18 21:50:03 by pbongiov          #+#    #+#              #
-#    Updated: 2026/03/22 19:09:36 by pbongiov         ###   ########.fr        #
+#    Created: 2026/03/23 13:12:27 by pbongiov          #+#    #+#              #
+#    Updated: 2026/03/23 13:12:37 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Account
+NAME = 
 
-SRCS = Account.cpp tests.cpp
+SRCS = 
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

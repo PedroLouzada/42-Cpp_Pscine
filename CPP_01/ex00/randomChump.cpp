@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 18:18:51 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/18 19:50:50 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/03/23 12:22:21 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/03/23 12:25:17 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include "contact.hpp"
-
-class PhoneBook
+void randomChump(std::string name)
 {
-    private:
-        Contact contact[8];
+    Zombie newChump(name);
 
-    public:
-        void newContact(int i);
-        void searchContact(void);
-};
-
-#endif
+    newChump.announce();
+}
