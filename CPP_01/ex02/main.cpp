@@ -6,7 +6,15 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 13:13:18 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/23 13:13:19 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:25:03 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+
+int main(void)
+{
+    std::string str = "HI THIS IS BRAIN";
+
+    
+}
