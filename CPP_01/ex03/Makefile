@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/27 19:43:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/03/27 19:43:59 by pbongiov         ###   ########.fr        #
+#    Created: 2026/03/23 13:12:27 by pbongiov          #+#    #+#              #
+#    Updated: 2026/03/24 19:11:50 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = human
 
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

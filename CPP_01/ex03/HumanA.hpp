@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 19:43:44 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/27 19:43:45 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/03/24 16:49:12 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/03/24 21:27:15 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-int main(int ac, char **av)
+#include "Weapon.hpp"
+
+class HumanA
 {
-    if (ac != 2)
-        return (1);
-    Harl harl;
+    private:
+        std::string name;
+        Weapon& weapon;
 
-    harl.complain(av[1]);
-}
+    public:
+        HumanA(std::string name, Weapon& weapon);
+        
+        void attack();
+};
+
+#endif

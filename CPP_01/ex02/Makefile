@@ -6,13 +6,13 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/23 13:12:27 by pbongiov          #+#    #+#              #
-#    Updated: 2026/03/23 13:12:37 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/03/24 14:52:11 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = reference
 
-SRCS = 
+SRCS = main.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

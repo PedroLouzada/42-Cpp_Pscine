@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 19:43:44 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/27 19:43:45 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/03/24 16:52:06 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/03/24 22:06:20 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-int main(int ac, char **av)
+#include "Weapon.hpp"
+
+class HumanB
 {
-    if (ac != 2)
-        return (1);
-    Harl harl;
+    private:
+        std::string name;
+        Weapon* weapon;
 
-    harl.complain(av[1]);
-}
+    public:
+        HumanB(std::string name);
+        
+        void attack();
+        void setWeapon(Weapon& weapon);
+};
+
+#endif

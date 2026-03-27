@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 19:43:44 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/27 19:43:45 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/03/24 16:42:32 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/03/24 22:28:46 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef WEAPON_H
+# define WEAPON_H
 
-int main(int ac, char **av)
+# include <iostream>
+
+class Weapon
 {
-    if (ac != 2)
-        return (1);
-    Harl harl;
+    private:
+        std::string type;
 
-    harl.complain(av[1]);
-}
+    public:
+        Weapon(std::string weapon);
+
+        const std::string& getType();
+        void setType(std::string newType);
+};
+
+#endif

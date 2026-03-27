@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 19:44:05 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/03/27 19:45:51 by pbongiov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void Harl::debug(void)
@@ -44,13 +56,13 @@ void Harl::complain(std::string level)
     {
         case 1:
             this->debug();
-            // falls through
+
         case 2:
             this->info();
-            // falls through
+
         case 3:
             this->warning();
-            // falls through
+
         case 4:
             this->error();
             break;
