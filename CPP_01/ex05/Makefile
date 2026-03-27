@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = sed
+NAME = harl
 
-SRCS = main.cpp 
+SRCS = main.cpp Harl.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -30,7 +30,7 @@ $(OBJ_DIR)/%.o: %.cpp
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_DIR) 
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
