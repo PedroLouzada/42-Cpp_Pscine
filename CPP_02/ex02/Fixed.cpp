@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 01:17:11 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/28 02:32:51 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/03/29 23:53:06 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
     _number = raw;
-}
+}   
 
 bool Fixed::operator>(const Fixed& other) const
 {

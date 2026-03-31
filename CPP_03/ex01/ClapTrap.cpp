@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:43:51 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/31 21:59:21 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/03/31 22:48:07 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ ClapTrap::ClapTrap(const std::string& name)
     _hitPoints = 10;
     _energyPoints = 10;
     _attackDamage = 0;
+}
+
+ClapTrap::ClapTrap(const std::string& name, const int hit, const int energy, const int attack)
+{
+    std::cout << "ClapTrap parameter constructor called\n";
+     _name = name;
+    _hitPoints = hit;
+    _energyPoints = energy;
+    _attackDamage = attack;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)

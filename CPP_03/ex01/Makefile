@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/31 19:43:54 by pbongiov          #+#    #+#              #
-#    Updated: 2026/03/31 19:44:13 by pbongiov         ###   ########.fr        #
+#    Created: 2026/03/31 21:08:48 by pbongiov          #+#    #+#              #
+#    Updated: 2026/03/31 21:36:44 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = scavtrap
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

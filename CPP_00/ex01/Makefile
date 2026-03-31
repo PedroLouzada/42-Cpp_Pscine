@@ -6,13 +6,13 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/18 18:16:29 by pbongiov          #+#    #+#              #
-#    Updated: 2026/03/18 19:43:39 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/03/24 15:56:43 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = phonebook.cpp contact.cpp main.cpp
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

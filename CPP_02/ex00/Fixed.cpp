@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 00:01:46 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/28 00:24:20 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/03/29 20:13:09 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed& other)
 {
     std::cout << "Copy constructor called" << std::endl;
-    _number = other._number;
+    *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
+    {
         this->_number = other._number;
-
+        getRawBits();
+    }
     return (*this);
 }
 
