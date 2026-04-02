@@ -10,15 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
     std::cout << "---------------------------- Constructor Tests -------------------------------------\n";
 
-    FragTrap a;
-    FragTrap b("Object B");
-    FragTrap c(b);
+    DiamondTrap a;
+    std::cout << std::endl;
+    DiamondTrap b("Object B");
+    std::cout << std::endl;
+    DiamondTrap c(b);
+    std::cout << std::endl;
     a = c;
     
     std::cout << "\n\n---------------------------------- Function Tests ---------------------------------------\n";
@@ -33,6 +36,9 @@ int main(void)
     
     a.highFivesGuys();
 
+    a.guardGate();
+
+    a.WhoAmI();
     std::cout << "\n\n---------------------------------- Destructor Tests ---------------------------------------\n";
 
 }

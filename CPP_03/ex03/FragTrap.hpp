@@ -3,8 +3,12 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
+    protected:
+        static const int defaltHitPoints = 100;
+        static const int defaultAttackDamage = 30;
+
     public:
         FragTrap(void);
         FragTrap(const std::string& name);

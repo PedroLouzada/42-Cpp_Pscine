@@ -15,8 +15,11 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
-{       
+class ScavTrap : virtual public ClapTrap
+{
+    protected:
+        static const int defaultenergyPoints = 50;
+
     public:
         ScavTrap(void);
         ScavTrap(const std::string& name);
