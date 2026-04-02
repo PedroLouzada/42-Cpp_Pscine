@@ -1,13 +1,8 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) : ClapTrap("", 100, 100, 30)
-{
-    std::cout << "FragTrap has been contructed by a default constructor.\n";
-}
-
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name, 100, 100, 30)
 {
-    std::cout << "FragTrap has been contructed by a parameter constructor.\n";
+    std::cout << "FragTrap has been contructed by a default constructor.\n";
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other._name, other._hitPoints, other._energyPoints, other._attackDamage)

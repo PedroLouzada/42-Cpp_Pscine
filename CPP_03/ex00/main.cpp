@@ -16,16 +16,15 @@ int main(void)
 {
     std::cout << "---------------------------- Constructor Tests -------------------------------------\n";
 
-    ClapTrap a;
-    ClapTrap b("Object B");
-    ClapTrap c(b);
+    ClapTrap a("Object B");
+    ClapTrap c(a);
     a = c;
     
     std::cout << "\n\n---------------------------------- Function Tests ---------------------------------------\n";
 
     a.attack("Object A");
 
-    b.beRepaired(10);
+    a.beRepaired(10);
     
     c.takeDamage(1000);
 

@@ -16,11 +16,9 @@ int main(void)
 {
     std::cout << "---------------------------- Constructor Tests -------------------------------------\n";
 
-    DiamondTrap a;
+    DiamondTrap a("Object B");
     std::cout << std::endl;
-    DiamondTrap b("Object B");
-    std::cout << std::endl;
-    DiamondTrap c(b);
+    DiamondTrap c(a);
     std::cout << std::endl;
     a = c;
     
@@ -28,7 +26,7 @@ int main(void)
 
     a.attack("Object A");
 
-    b.beRepaired(10);
+    a.beRepaired(10);
     
     c.takeDamage(1000);
 

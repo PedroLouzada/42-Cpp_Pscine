@@ -12,18 +12,9 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
-{
-    std::cout << "ClapTrap deafult constructor called\n";
-    _name = "";
-    _hitPoints = 10;
-    _energyPoints = 10;
-    _attackDamage = 0;
-}
-
 ClapTrap::ClapTrap(const std::string& name)
 {
-    std::cout << "ClapTrap parameter constructor called\n";
+    std::cout << "ClapTrap deafult constructor called\n";
      _name = name;
     _hitPoints = 10;
     _energyPoints = 10;

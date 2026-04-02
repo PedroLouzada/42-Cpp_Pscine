@@ -21,7 +21,6 @@ class ScavTrap : virtual public ClapTrap
         static const int defaultenergyPoints = 50;
 
     public:
-        ScavTrap(void);
         ScavTrap(const std::string& name);
         ScavTrap(const ScavTrap& other);
         ScavTrap& operator=(const ScavTrap& other);

@@ -10,7 +10,6 @@ class FragTrap : virtual public ClapTrap
         static const int defaultAttackDamage = 30;
 
     public:
-        FragTrap(void);
         FragTrap(const std::string& name);
         FragTrap(const FragTrap& other);
         FragTrap& operator=(const FragTrap& other);

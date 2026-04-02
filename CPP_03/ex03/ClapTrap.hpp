@@ -24,7 +24,6 @@ class ClapTrap
         int         _attackDamage;
 
     public:
-            ClapTrap();
             ClapTrap(const std::string& name);
             ClapTrap(const std::string& name, const int hit, const int energy, const int attack);
             ClapTrap(const ClapTrap& other);

@@ -12,14 +12,9 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap("", 100, 50, 20)
-{
-    std::cout << "ScavTrap default constructor called\n";
-}
-
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 50, 20)
 {
-    std::cout << "ScavTrap parameter constructor called\n";
+    std::cout << "ScavTrap default constructor called\n";
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other._name, other._hitPoints, other._energyPoints, other._attackDamage)

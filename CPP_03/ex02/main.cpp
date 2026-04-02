@@ -16,16 +16,15 @@ int main(void)
 {
     std::cout << "---------------------------- Constructor Tests -------------------------------------\n";
 
-    FragTrap a;
-    FragTrap b("Object B");
-    FragTrap c(b);
+    FragTrap a("Object B");
+    FragTrap c(a);
     a = c;
     
     std::cout << "\n\n---------------------------------- Function Tests ---------------------------------------\n";
 
     a.attack("Object A");
 
-    b.beRepaired(10);
+    a.beRepaired(10);
     
     c.takeDamage(1000);
 
