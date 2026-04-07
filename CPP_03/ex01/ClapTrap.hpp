@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:43:48 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/31 22:45:35 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:03:59 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class ClapTrap
         int         _attackDamage;
 
     public:
-            ClapTrap();
             ClapTrap(const std::string& name);
             ClapTrap(const std::string& name, const int hit, const int energy, const int attack);
             ClapTrap(const ClapTrap& other);

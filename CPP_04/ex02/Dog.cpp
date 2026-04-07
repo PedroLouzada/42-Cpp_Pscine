@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:48 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 21:42:42 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/06 21:06:20 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ Dog::Dog(void) : Animal()
     type = "Dog";
     std::cout << "A Dog has been contructed!\n";
     _brain = new Brain();
-    for (int i = 0; i < 100; i++)
-		_brain->ideas[i] = "I'm a chill dog...";
 }
 
 Dog::Dog(const Dog& other)

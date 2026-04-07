@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 20:55:23 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 21:42:21 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/04/06 19:12:11 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/04/06 19:15:42 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include <iostream>
+# include "WrongAnimal.hpp"
 
-class Brain
+class WrongCat : virtual public WrongAnimal
 {
-	public:
-		std::string ideas[100];
+    public:
+        WrongCat(void);
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
+        ~WrongCat(void);
 
-		Brain();
-		Brain(const Brain& other);
-		Brain& operator=(const Brain& other);
-		~Brain();
+        void makeSound(void) const;
 };
 
 #endif

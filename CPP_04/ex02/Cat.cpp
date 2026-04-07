@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 19:11:48 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 21:42:42 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/04/06 19:11:44 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/04/06 21:06:16 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog(void) : Animal()
+Cat::Cat(void) : Animal()
 {
-    type = "Dog";
-    std::cout << "A Dog has been contructed!\n";
+    type = "Cat";
+    std::cout << "A Cat has just be constructed\n";
     _brain = new Brain();
-    for (int i = 0; i < 100; i++)
-		_brain->ideas[i] = "I'm a chill dog...";
 }
 
-Dog::Dog(const Dog& other)
+Cat::Cat(const Cat& other) : Animal()
 {
     type = other.type;
-    std::cout << "A Dog has been Copy contructed!\n";
+    std::cout << "A Cat had be copyed into another!?\n";
 }
 
-Dog& Dog::operator=(const Dog& other)
+Cat& Cat::operator=(const Cat& other)
 {
     if (this != &other)
         type = other.type;
 
-    std::cout << "A Dog has been assigned to another!\n";
+    std::cout << "A Cat has just assigned into other\n";
     return (*this);
 }
 
-Dog::~Dog(void)
+Cat::~Cat(void)
 {
     delete(_brain);
-    std::cout << "A Dog has been destroyed!\n";
+    std::cout << "A Cat has been exploded\n";
 }
 
-void Dog::makeSound(void) const
+void Cat::makeSound(void) const
 {
-    std::cout << "AuAuAuAuAuAuAu\n";
+    std::cout << "Miauuuuuuuuuuuuu\n";
 }
