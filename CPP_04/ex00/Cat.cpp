@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/06 19:11:44 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/04/06 19:11:45 by pbongiov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat(void) : Animal()
@@ -26,7 +38,7 @@ Cat::~Cat(void)
     std::cout << "A Cat has been exploded\n";
 }
 
-void Cat::makeSound(void)
+void Cat::makeSound(void) const
 {
     std::cout << "Miauuuuuuuuuuuuu\n";
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/06 19:11:48 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/04/06 19:11:49 by pbongiov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog(void) : Animal()
@@ -26,7 +38,7 @@ Dog::~Dog(void)
     std::cout << "A Dog has been destroyed!\n";
 }
 
-void Dog::makeSound(void)
+void Dog::makeSound(void) const
 {
     std::cout << "AuAuAuAuAuAuAu\n";
 }
