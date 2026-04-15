@@ -14,7 +14,7 @@
 
 Animal::Animal(void)
 {
-    type = "I'm not a defined Animal";
+    type = "Unknown";
     std::cout << "Animal default constructor called\n";
 }
 

@@ -16,63 +16,33 @@
 
 int main(void)
 {
-    std::cout << "---------------------------- Constructor Tests ---------------------------------\n";
+    std::cout << "------------------------ Construct Array ---------------------\n\n";
 
-    const Animal* meta = new Animal();
-    std::cout << std::endl;
+    Animal *array[10];
 
-    const Animal* dog = new Dog();
-    std::cout << std::endl;
+    for(int i = 0; i < 10; i++)
+    {
+        if (i % 2)
+            array[i] = new Dog();
+        else
+            array[i] = new Cat();
+        std::cout << "\n";
+    }
 
-    const Animal* cat = new Cat();
-    std::cout << std::endl;
+    for(int i = 0; i < 10; i++)
+        std::cout << "Index " << i << ": " << array[i]->getType() << std::endl;
 
-    Animal copied;
-    std::cout << std::endl;
+    std::cout << "\n\n------------------------ Deep copy test ---------------------\n\n";
     
-    const WrongAnimal* wmeta = new WrongAnimal();
-    std::cout << std::endl;
-    
-    const WrongAnimal* wcat= new WrongCat();
-    std::cout << std::endl;
+    Dog* dogA = new Dog();
+    std::cout << "\n";
+    Dog* dogB = new Dog;
+    std::cout << "\n";
 
-    std::cout << "---------------------------- Copy Constructor Tests ----------------------------\n";
+    dogA = dogB;
+    std::cout << "\n";
+    //delete(dogB);
+    std::cout << "\n";
 
-    Animal copyAnimal(copied);
-    Animal copiedAnimal;
-    copiedAnimal = copyAnimal;
-    std::cout << std::endl;
-    
-    std::cout << "\n---------------------------- Getters Tests -------------------------------------\n";
-
-    std::cout << meta->getType() << " " << std::endl;
-    std::cout << dog->getType() << " " << std::endl;
-    std::cout << cat->getType() << " " << std::endl;
-    std::cout << wmeta->getType() << " " << std::endl;
-    std::cout << wcat->getType() << " " << std::endl;
-
-    std::cout << "\n---------------------------- Sound Tests -------------------------------------\n";
-    
-    cat->makeSound();
-    dog->makeSound();
-    meta->makeSound();
-    wmeta->makeSound();
-    wcat->makeSound();
-
-    std::cout << "\n---------------------------- Destructor Tests ---------------------------------\n";
-
-    delete(meta);
-    std::cout << std::endl;
-    
-    delete(dog);
-    std::cout << std::endl;
-
-    delete(cat);
-    std::cout << std::endl;
-
-    delete(wmeta);
-    std::cout << std::endl;
-
-    delete(wcat);
-    std::cout << std::endl;
+    std::cout << dogA->getIdea(10) << std::endl;
 }

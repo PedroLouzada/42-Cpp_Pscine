@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:46 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/06 21:02:36 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:11:47 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
     private:
         Brain* _brain;

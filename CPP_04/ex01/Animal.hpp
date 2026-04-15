@@ -21,13 +21,13 @@ class Animal
         std::string type;
 
     public:
-        Animal(void);
+        Animal();
         Animal(const Animal& other);
         Animal& operator=(const Animal& other);
-        virtual ~Animal(void);
+        virtual ~Animal();
 
-        virtual void makeSound(void) const;
-        const std::string getType(void) const;
+        virtual void makeSound() const;
+        const std::string getType() const;
 };
 
 #endif

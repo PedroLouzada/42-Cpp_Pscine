@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:48 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 21:42:42 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:11:49 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 Dog::Dog(void) : Animal()
 {
-    type = "Dog";
     std::cout << "A Dog has been contructed!\n";
+    type = "Dog";
     _brain = new Brain();
-    for (int i = 0; i < 100; i++)
-		_brain->ideas[i] = "I'm a chill dog...";
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal()
 {
-    type = other.type;
     std::cout << "A Dog has been Copy contructed!\n";
+    type = other.type;
+    _brain = new Brain(*other._brain);
 }
 
 Dog& Dog::operator=(const Dog& other)
 {
     if (this != &other)
+    {
         type = other.type;
-
+        delete(_brain);
+        _brain = new Brain(*other._brain);
+    }
     std::cout << "A Dog has been assigned to another!\n";
     return (*this);
 }
@@ -45,4 +47,9 @@ Dog::~Dog(void)
 void Dog::makeSound(void) const
 {
     std::cout << "AuAuAuAuAuAuAu\n";
+}
+
+std::string& Dog::getIdea(const int index) const
+{
+    return (this->_brain->ideas[index]);
 }

@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:51 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/06 21:02:52 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/06 19:11:52 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
     private:
         Brain* _brain;
-        
+
     public:
         Dog(void);
         Dog(const Dog& other);
@@ -28,6 +28,7 @@ class Dog : virtual public Animal
         ~Dog(void);
 
         void makeSound(void) const;
+        std::string& getIdea(const int index) const;
 };
 
 #endif
