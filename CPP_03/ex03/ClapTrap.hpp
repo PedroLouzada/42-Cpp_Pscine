@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:43:48 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/31 22:45:35 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/13 17:57:35 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ class ClapTrap
             ClapTrap(const std::string& name, const int hit, const int energy, const int attack);
             ClapTrap(const ClapTrap& other);
             ClapTrap& operator=(const ClapTrap& other);
-            ~ClapTrap();
+            virtual ~ClapTrap();
 
-            void attack(const std::string& target);
+            virtual void attack(const std::string& target);
             void takeDamage(unsigned int amount);
             void beRepaired(unsigned int amount);
 };

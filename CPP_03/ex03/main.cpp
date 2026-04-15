@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:09:34 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/03/31 23:42:51 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/13 18:01:55 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,30 @@ int main(void)
 {
     std::cout << "---------------------------- Constructor Tests -------------------------------------\n";
 
-    DiamondTrap a("Object B");
+    ClapTrap* a = new DiamondTrap("Object A");
     std::cout << std::endl;
-    DiamondTrap c(a);
+    DiamondTrap b("Object B");
     std::cout << std::endl;
-    a = c;
+    DiamondTrap c(b);
+    std::cout << std::endl;
+    c = b;
     
     std::cout << "\n\n---------------------------------- Function Tests ---------------------------------------\n";
 
-    a.attack("Object A");
+    a->attack("Object A");
 
-    a.beRepaired(10);
+    a->beRepaired(10);
     
     c.takeDamage(1000);
 
     c.attack("Object A");
     
-    a.highFivesGuys();
+    b.highFivesGuys();
 
-    a.guardGate();
+    b.guardGate();
 
-    a.WhoAmI();
+    b.WhoAmI();
     std::cout << "\n\n---------------------------------- Destructor Tests ---------------------------------------\n";
 
+    delete(a);
 }
