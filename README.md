@@ -14,10 +14,11 @@ Each module builds on the previous one, progressively covering the core concepts
 
 | Module | Topic |
 |--------|-------|
-| [CPP00](./CPP00) | Namespaces, classes, member functions, I/O streams |
-| [CPP01](./CPP01) | Memory allocation, pointers, references, file streams |
-| [CPP02](./CPP02) | Ad-hoc polymorphism, operator overloading, Orthodox Canonical Form |
-| [CPP03](./CPP03) | Inheritance |
+| [CPP00](./CPP_00) | Namespaces, classes, member functions, I/O streams |
+| [CPP01](./CPP_01) | Memory allocation, pointers, references, file streams |
+| [CPP02](./CPP_02) | Ad-hoc polymorphism, operator overloading, Orthodox Canonical Form |
+| [CPP03](./CPP_03) | Inheritance |
+| [CPP04](./CPP_04) | Subtype Polymorphism, Abstract Classes, and Interfaces |
 
 ---
 
