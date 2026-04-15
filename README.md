@@ -17,6 +17,7 @@ Each module builds on the previous one, progressively covering the core concepts
 | [CPP00](./CPP00) | Namespaces, classes, member functions, I/O streams |
 | [CPP01](./CPP01) | Memory allocation, pointers, references, file streams |
 | [CPP02](./CPP02) | Ad-hoc polymorphism, operator overloading, Orthodox Canonical Form |
+| [CPP03](./CPP03) | Inheritance |
 
 ---
 
