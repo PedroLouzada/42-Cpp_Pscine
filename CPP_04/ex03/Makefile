@@ -6,7 +6,7 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/18 00:15:35 by pbongiov          #+#    #+#              #
-#    Updated: 2026/04/18 01:40:05 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/04/18 16:10:01 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
+CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 all: $(NAME)
 

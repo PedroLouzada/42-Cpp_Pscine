@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 21:34:35 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/18 00:27:40 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/18 15:57:11 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,10 @@ AMateria::~AMateria(void)
 {
     std::cout << "A AMateria has been destroyed\n";
 }
+
+std::string const& AMateria::getType(void) const
+{
+    return (_type);
+}
+
+void AMateria::use(ICharacter& target){ (void)target; }

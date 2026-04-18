@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 20:30:13 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/18 01:52:30 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/18 16:04:09 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ Character& Character::operator=(const Character& other)
 Character::~Character(void)
 {
     std::cout << "A Character has been killed 😵\n";
+    for(int i = 0; i < 4; i++)
+    {
+        if (_slots[i] != NULL)
+            delete(_slots[i]);
+    }
 }
 
 std::string const& Character::getName() const

@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 00:01:09 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/18 01:52:30 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/18 16:03:51 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ MateriaSource::MateriaSource(const MateriaSource& other) : IMateriaSource()
 {
     std::cout << "Materia Source is beeing copied...\n";
     for(int i = 0; i < 4; i++)
-        _slots[i] = _slots[i]->clone();
+        _slots[i] = other._slots[i]->clone();
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
@@ -45,13 +45,18 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 MateriaSource::~MateriaSource(void)
 {
     std::cout << "Materia Source beeing desintegrated...\n";
+    for(int i = 0; i < 4; i++)
+    {
+        if (_slots[i] != NULL)
+            delete(_slots[i]);
+    }
 }
 
 void MateriaSource::learnMateria(AMateria* m)
 {
     for(int i = 0; i < 4; i++)
     {
-        if (_slots[i] != NULL)
+        if (_slots[i] == NULL)
         {
             _slots[i] = m->clone();
             return ;
