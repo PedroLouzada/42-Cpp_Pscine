@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 19:12:06 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/06 19:29:10 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/04/16 21:34:30 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/04/18 01:41:45 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
 
-class WrongAnimal
+class ICharacter;
+
+class AMateria
 {
     protected:
-        std::string type;
-
+        std::string _type;
+        
     public:
-        WrongAnimal(void);
-        WrongAnimal(const WrongAnimal& other);
-        WrongAnimal& operator=(const WrongAnimal& other);
-        virtual ~WrongAnimal(void);
-
-        void makeSound(void) const;
-        const std::string getType(void) const;
+        AMateria(std::string const& type);
+        AMateria(const AMateria& other);
+        AMateria& operator=(const AMateria& other);
+        ~AMateria();
+        
+        std::string const& getType() const;
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
 };
 
 #endif

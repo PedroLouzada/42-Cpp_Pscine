@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:55:27 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 21:41:15 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:49:12 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Brain::Brain()
 	{
 		str << "I have " << i + 1 << " ideas!";
 		ideas[i] = str.str();
+		str.str("");
 	}
 }
 

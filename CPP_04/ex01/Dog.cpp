@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:48 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/06 19:11:49 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/16 21:00:59 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Dog& Dog::operator=(const Dog& other)
         delete(_brain);
         _brain = new Brain(*other._brain);
     }
-    std::cout << "A Dog has been assigned to another!\n";
+    std::cout << "A Dog has been assigned to another!" << std::endl;
     return (*this);
 }
 
@@ -51,5 +51,5 @@ void Dog::makeSound(void) const
 
 std::string& Dog::getIdea(const int index) const
 {
-    return (this->_brain->ideas[index]);
+    return (_brain->ideas[index]);
 }

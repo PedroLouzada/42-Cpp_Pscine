@@ -14,7 +14,7 @@
 
 WrongAnimal::WrongAnimal(void)
 {
-    type = "I'm a WrongAnimal";
+    type = "WrongAnimal";
     std::cout << "WrongAnimal default constructor called\n";
 }
 

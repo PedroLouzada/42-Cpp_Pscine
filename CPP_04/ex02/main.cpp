@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:53 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 19:30:04 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/16 21:19:56 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,90 +16,30 @@
 
 int main(void)
 {
-    std::cout << "---------------------------- Constructor Tests ---------------------------------\n";
+    std::cout << "------------------------ Construct test ---------------------\n\n";
 
-    // const Animal* meta = new Animal();
-    // std::cout << std::endl;
+    // Animal b;
+    // Animal* a = new Animal;
     
-    const Animal* dog = new Dog();
-    std::cout << std::endl;
+    Animal* animal = new Dog;
 
-    const Animal* cat = new Cat();
-    std::cout << std::endl;
-
-    Dog ndog;
-    std::cout << std::endl;
-
-    Cat ncat;
-    std::cout << std::endl;
-
-    WrongAnimal a;
-    std::cout << std::endl;
-
-    WrongCat c;
-    std::cout << std::endl;
+    std::cout << "\n\n------------------------ Deep copy test ---------------------\n\n";
     
-    Brain b;
+    Dog* dogA = new Dog();
+    std::cout << "\n";
+    Dog* dogB = new Dog();
+    std::cout << "\n";
+
+    *dogA = *dogB;
+    std::cout << "\n";
+    delete(dogB);
+    std::cout << "\n";
+
+    std::cout << dogA->getIdea(5) << std::endl;
+
+    std::cout << "\n\n------------------------ Destructor test ---------------------\n\n";
+
+    delete(dogA);
     std::cout << std::endl;
-
-    const WrongAnimal* wmeta = new WrongAnimal();
-    std::cout << std::endl;
-    
-    const WrongAnimal* wcat= new WrongCat();
-    std::cout << std::endl;
-
-    std::cout << "---------------------------- Copy Constructor Tests ----------------------------\n";
-
-    Dog n2dog(ndog);
-    Dog n3dog;
-    n3dog = n2dog;
-    std::cout << std::endl;
-
-    Cat n2Cat(ncat);
-    Cat n3Cat;
-    n3Cat = n2Cat;
-    std::cout << std::endl;
-
-    WrongAnimal a2(a);
-    WrongAnimal a3;
-    a3 = a2;
-    std::cout << std::endl;
-
-    WrongCat c2(c);
-    WrongCat c3;
-    c3 = c2;
-    std::cout << std::endl;
-
-    Brain b2(b);
-    Brain b3;
-    b3 = b2;
-    std::cout << std::endl;
-    
-    std::cout << "\n---------------------------- Getters Tests -------------------------------------\n";
-
-    std::cout << dog->getType() << " " << std::endl;
-    std::cout << cat->getType() << " " << std::endl;
-    std::cout << wmeta->getType() << " " << std::endl;
-    std::cout << wcat->getType() << " " << std::endl;
-
-    std::cout << "\n---------------------------- Sound Tests -------------------------------------\n";
-    
-    cat->makeSound();
-    dog->makeSound();
-    wmeta->makeSound();
-    wcat->makeSound();
-
-    std::cout << "\n---------------------------- Destructor Tests ---------------------------------\n";
-    
-    delete(dog);
-    std::cout << std::endl;
-
-    delete(cat);
-    std::cout << std::endl;
-
-    delete(wmeta);
-    std::cout << std::endl;
-
-    delete(wcat);
-    std::cout << std::endl;
+    delete(animal);
 }

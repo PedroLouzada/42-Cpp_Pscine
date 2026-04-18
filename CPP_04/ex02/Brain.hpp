@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:55:23 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/06 20:57:38 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/07 21:42:21 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 class Brain
 {
-	protected:
+	public:
 		std::string ideas[100];
 
-	public:
 		Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);

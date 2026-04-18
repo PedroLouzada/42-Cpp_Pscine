@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 19:11:53 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/04/07 17:40:41 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/04/16 21:14:08 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,23 @@ int main(void)
     
     Dog* dogA = new Dog();
     std::cout << "\n";
-    Dog* dogB = new Dog;
+    Dog* dogB = new Dog();
     std::cout << "\n";
 
-    dogA = dogB;
+    *dogA = *dogB;
     std::cout << "\n";
-    //delete(dogB);
+    delete(dogB);
     std::cout << "\n";
 
-    std::cout << dogA->getIdea(10) << std::endl;
+    std::cout << dogA->getIdea(5) << std::endl;
+
+    std::cout << "\n\n------------------------ Destructor test ---------------------\n\n";
+
+    delete(dogA);
+    std::cout << std::endl;
+    for (int i = 0; i < 10; i++)
+    {
+        delete(array[i]);
+        std::cout << std::endl;
+    }
 }

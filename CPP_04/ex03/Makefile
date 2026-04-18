@@ -5,20 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/04/06 19:11:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/04/16 21:16:08 by pbongiov         ###   ########.fr        #
+#    Created: 2026/04/18 00:15:35 by pbongiov          #+#    #+#              #
+#    Updated: 2026/04/18 01:40:05 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = abstract
+NAME = materia
 
-SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS = main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 all: $(NAME)
 
