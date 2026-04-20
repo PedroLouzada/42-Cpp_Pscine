@@ -12,7 +12,7 @@
 
 NAME = materia
 
-SRCS = main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+SRCS = main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp Linked.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

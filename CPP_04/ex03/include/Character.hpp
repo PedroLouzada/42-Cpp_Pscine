@@ -15,12 +15,14 @@
 
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include "Linked.hpp"
 
 class Character : public ICharacter
 {
     private:
         std::string _name;
         AMateria*   _slots[4];
+        t_linked*   _floor;
 
     public:
         Character(std::string name);

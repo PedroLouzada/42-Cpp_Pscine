@@ -54,6 +54,7 @@ MateriaSource::~MateriaSource(void)
 
 void MateriaSource::learnMateria(AMateria* m)
 {
+    std::cout << "Materia Source is learning a new " << m->getType() << " spell\n";
     for(int i = 0; i < 4; i++)
     {
         if (_slots[i] == NULL)
@@ -67,9 +68,10 @@ void MateriaSource::learnMateria(AMateria* m)
 
 AMateria* MateriaSource::createMateria(std::string const& type)
 {
+    std::cout << "Materia Source is creating a " << type << " materia\n";
     for(int i = 0; i < 4; i++)
     {
-        if (type == _slots[i]->getType())
+        if (_slots[i] && _slots[i]->getType() == type)
             return (_slots[i]->clone());
     }
     std::cout << "Materia Source don't know the input type\n";
