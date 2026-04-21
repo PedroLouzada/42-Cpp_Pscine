@@ -18,7 +18,7 @@
 typedef struct s_linked
 {
     private:
-        static int _index;
+        int        _index;
         AMateria*  _trash;
         s_linked*  _head;
         s_linked*  _next;
@@ -26,7 +26,11 @@ typedef struct s_linked
     public:
         void        pushBack(AMateria* m);
         AMateria*   getTrash();
-        static int  getIndex();
+        int         getIndex();
+        void        newLinked();
+        s_linked*   getNext();
+        s_linked*   getHead();
+        
 } t_linked;
 
 #endif

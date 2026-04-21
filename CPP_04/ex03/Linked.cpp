@@ -12,26 +12,34 @@
 
 #include "Linked.hpp"
 
-int s_linked::_index = 0;
+void    s_linked::newLinked(void)
+{
+    _index = 0;
+    _head = NULL;
+}
 
 void    s_linked::pushBack(AMateria* m)
-{
-    if (_index == 0)
-    {
-        _trash = m;
-        _head = this;
-    }
+{   
+    t_linked* newNode = new t_linked();
+    newNode->_trash = m;
+    newNode->_next = NULL;
+
+    if (_head == NULL)
+        _head = newNode;
     else
     {
         t_linked* current = _head;
-        for(int i = 0; i < _index; i++)
+        while (current->_next != NULL)
             current = current->_next;
-        current->_next = this;
+        current->_next = newNode;
     }
-    _next = NULL;
     _index++;
 }
 
 AMateria* s_linked::getTrash(void) { return (_trash); }
 
 int s_linked::getIndex(void) { return(_index); }
+
+s_linked* s_linked::getNext(void) { return(_next); }
+
+s_linked* s_linked::getHead(void) { return (_head); }

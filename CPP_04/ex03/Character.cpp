@@ -18,14 +18,23 @@ Character::Character(std::string name) : ICharacter()
     _name = name;
     for (int i = 0; i < 4; i++)
         _slots[i] = NULL;
+    _floor = new s_linked();
+    _floor->newLinked();
 }
 
 Character::Character(const Character& other) : ICharacter(other)
 {
     std::cout << "A Character has been copied!\n";
     _name = other._name;
+    _floor = new s_linked();
+    _floor->newLinked();   
     for(int i = 0; i < 4; i++)
-        _slots[i] = _slots[i]->clone();
+    {
+        if (other._slots[i] == NULL)
+            _slots[i] = NULL;
+        else
+            _slots[i] = other._slots[i]->clone();
+    }
 }
 
 Character& Character::operator=(const Character& other)
@@ -38,7 +47,10 @@ Character& Character::operator=(const Character& other)
         {
             if (_slots[i] != NULL)
                 delete(_slots[i]);
-            _slots[i] = other._slots[i]->clone();
+            if (other._slots[i] == NULL)
+                _slots[i] = NULL;
+            else
+                _slots[i] = other._slots[i]->clone();
         }
     }
 
@@ -48,13 +60,22 @@ Character& Character::operator=(const Character& other)
 Character::~Character(void)
 {
     std::cout << "A Character has been killed 😵\n";
+
     for(int i = 0; i < 4; i++)
     {
         if (_slots[i] != NULL)
             delete(_slots[i]);
     }
-    for(int i = 0; i < _floor->getIndex(); i++)
-        delete(_floor->getTrash());
+    t_linked* current = _floor->getHead();
+    t_linked* next;
+    while (current != NULL)
+    {
+        next = current->getNext();
+        delete(current->getTrash());
+        delete(current);
+        current = next;
+    }
+    delete (_floor);
 }
 
 std::string const& Character::getName() const
@@ -92,5 +113,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
+    if (idx < 0 || idx > 3 || !_slots[idx])
+        return ;
     _slots[idx]->use(target);
 }
