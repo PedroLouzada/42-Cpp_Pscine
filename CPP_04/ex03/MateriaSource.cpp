@@ -68,11 +68,13 @@ void MateriaSource::learnMateria(AMateria* m)
 
 AMateria* MateriaSource::createMateria(std::string const& type)
 {
-    std::cout << "Materia Source is creating a " << type << " materia\n";
     for(int i = 0; i < 4; i++)
     {
         if (_slots[i] && _slots[i]->getType() == type)
+        {
+            std::cout << "Materia Source is creating a " << type << " materia\n";
             return (_slots[i]->clone());
+        }
     }
     std::cout << "Materia Source don't know the input type\n";
     return (0);
