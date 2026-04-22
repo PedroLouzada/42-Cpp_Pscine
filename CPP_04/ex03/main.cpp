@@ -29,34 +29,34 @@ int main(void)
 
     std::cout << "--------------------- MateriaSource learn tests ---------------------\n\n";
 
-    AMateria* l1 = new Ice();
+    AMateria* m1 = new Ice();
     std::cout << std::endl;
 
-    AMateria* l2 = new Cure();
+    AMateria* m2 = new Cure();
     std::cout << std::endl;
 
-    AMateria* l3 = new Ice();
+    AMateria* m3 = new Ice();
     std::cout << std::endl;
 
-    AMateria* l4 = new Cure();
+    AMateria* m4 = new Cure();
     std::cout << std::endl;
 
-    AMateria* l5 = new Ice();
+    AMateria* m5 = new Ice();
     std::cout << std::endl;
 
-    mSource->learnMateria(l1);
+    mSource->learnMateria(m1);
     std::cout << std::endl;
 
-    mSource->learnMateria(l2);
+    mSource->learnMateria(m2);
     std::cout << std::endl;
 
-    mSource->learnMateria(l3);
+    mSource->learnMateria(m3);
     std::cout << std::endl;
 
-    mSource->learnMateria(l4);
+    mSource->learnMateria(m4);
     std::cout << std::endl;
 
-    mSource->learnMateria(l5);
+    mSource->learnMateria(m5);
     std::cout << std::endl;
 
     std::cout << "--------------------- MateriaSource create tests ---------------------\n\n";
@@ -85,10 +85,6 @@ int main(void)
     std::cout << std::endl;
 
     pedro->equip(tmp4);
-    std::cout << std::endl;
-
-    AMateria* overflow = mSource->createMateria("ice");
-    pedro->equip(overflow);
     std::cout << std::endl;
 
     std::cout << "--------------------- Use tests ---------------------\n\n";
@@ -193,22 +189,19 @@ int main(void)
     delete sc;
     std::cout << std::endl;
 
-    delete overflow;
+    delete m1;
     std::cout << std::endl;
 
-    delete l1;
+    delete m2;
     std::cout << std::endl;
 
-    delete l2;
+    delete m3;
     std::cout << std::endl;
 
-    delete l3;
+    delete m4;
     std::cout << std::endl;
 
-    delete l4;
-    std::cout << std::endl;
-
-    delete l5;
+    delete m5;
     std::cout << std::endl;
 
     delete bob2;

@@ -18,7 +18,7 @@ Dog::Dog(void) : Animal()
     std::cout << "A Dog has been contructed!\n";
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal()
 {
     type = other.type;
     std::cout << "A Dog has been Copy contructed!\n";
