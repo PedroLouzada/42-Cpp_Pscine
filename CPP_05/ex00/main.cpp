@@ -22,4 +22,15 @@ int main(void)
     catch(std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
+
+    Bureaucrat inRange("In Range", 100);
+
+    std::cout << inRange << std::endl;
+    inRange.incrementGrade(10);
+    std::cout << inRange << std::endl;
+    inRange.decrementGrade(20);
+    std::cout << inRange << std::endl;
+    inRange.decrementGrade(100);
+    std::cout << inRange << std::endl;
+
 }
