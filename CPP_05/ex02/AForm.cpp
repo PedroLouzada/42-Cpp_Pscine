@@ -40,6 +40,10 @@ const char* AForm::GradeTooLowException::what() const throw() { return("Bureaucr
 
 const char* AForm::FormAlreadySignedException::what() const throw() { return("This AForm was already signed!"); }
 
+const char* AForm::ExecuteTooLowException::what() const throw() { return("Bureaucrat grade too Low to execute this Form!"); }
+
+const char* AForm::FormNotSignedException::what() const throw() { return("This Form is not signed and connot be executed!"); }
+
 std::ostream& operator<<(std::ostream& out, const AForm& form)
 {
 	out << form.getName();
@@ -63,4 +67,16 @@ void AForm::beSigned(Bureaucrat& bur)
 		throw AForm::GradeTooLowException();
 
 	_signed = true;
+}
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (executor.getGrade() > _execGrade)
+		throw AForm::ExecuteTooLowException();
+	
+	if (!_signed)
+		throw AForm::FormNotSignedException();
+
+	this->poliExecute();
+	std::cout << executor.getName() << " executed " << _name << std::endl;
 }

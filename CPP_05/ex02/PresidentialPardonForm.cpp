@@ -2,7 +2,7 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string& target)
-    : AForm(target, 25, 5), _target(target)
+    : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)

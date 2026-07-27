@@ -6,13 +6,13 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/06 19:11:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/04/06 19:22:00 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/07/27 17:04:13 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = form
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
