@@ -30,7 +30,14 @@ int main(void)
     std::cout << inRange << std::endl;
     inRange.decrementGrade(20);
     std::cout << inRange << std::endl;
-    inRange.decrementGrade(100);
+
+    try{
+        inRange.decrementGrade(100);
+    }
+    catch(std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    
     std::cout << inRange << std::endl;
 
 }

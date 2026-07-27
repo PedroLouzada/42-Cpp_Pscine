@@ -1,11 +1,4 @@
 {
-  "editor.quickSuggestions": {
-    "other": false,
-    "comments": false,
-    "strings": false
-  },
-  "editor.suggestOnTriggerCharacters": false,
-  "editor.tabCompletion": "off",
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,

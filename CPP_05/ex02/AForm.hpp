@@ -1,0 +1,55 @@
+
+#ifndef AForm_HPP
+# define AForm_HPP
+
+# include <iostream>
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
+class AForm
+{
+	private:
+		const std::string _name;
+		bool			  _signed;
+		const	int 	  _signGrade;
+		const	int 	  _execGrade;
+
+
+	public:
+		AForm(std::string name, int sGrade, int eGrade);
+		AForm(const AForm& other);
+		AForm& operator=(const AForm& other);
+		virtual ~AForm() = 0;
+
+		const std::string& getName(void) const;
+		bool 	  		   getSigned(void) const;
+		int 			   getSignGrade(void) const;
+		int 			   getExecGrade(void) const;
+
+		virtual void  beSigned(Bureaucrat& bur);
+		
+		virtual void execute(Bureaucrat const & executor) const = 0;
+
+		class GradeTooHighException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+
+		class FormAlreadySignedException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+};
+
+std::ostream& operator<<(std::ostream& out, const AForm& form);
+
+#endif
