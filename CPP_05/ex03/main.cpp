@@ -5,26 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 11:45:06 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/07/29 11:45:09 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/07/29 11:46:02 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/07/29 12:28:57 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
     try
     {
-        Bureaucrat b("Pedro", 1);
-        ShrubberyCreationForm f("home");
-        std::cout << f << std::endl;
-
-        b.signAForm(f);
-        f.execute(b);
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        
+        delete (rrf);
     }
     catch(const std::exception& e)
     {
@@ -35,12 +36,11 @@ int main(void)
 
     try
     {
-        Bureaucrat b("Pedro", 1);
-        RobotomyRequestForm f("Bender");
-        std::cout << f << std::endl;
-
-        b.signAForm(f);
-        f.execute(b);
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("aaaa", "Bender");
+        
+        delete (rrf);
     }
     catch(const std::exception& e)
     {
@@ -49,35 +49,5 @@ int main(void)
 
     std::cout << "-------------\n" << std::endl;
 
-    try
-    {
-        Bureaucrat b("Pedro", 1);
-        PresidentialPardonForm f("Arthur Dent");
-        std::cout << f << std::endl;
-
-        b.signAForm(f);
-        f.execute(b);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    std::cout << "-------------\n" << std::endl;
-
-    try
-    {
-        Bureaucrat b("Pedro", 100);
-        PresidentialPardonForm f("Arthur Dent");
-        std::cout << f << std::endl;
-
-        b.signAForm(f);
-        f.execute(b);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    std::cout << "-------------\n" << std::endl;
 }
+

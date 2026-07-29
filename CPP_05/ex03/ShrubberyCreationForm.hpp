@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 11:45:17 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/07/29 11:45:19 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/07/29 11:46:19 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/07/29 11:46:20 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
-class PresidentialPardonForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
     private:
         std::string _target;
 		virtual void poliExecute(void) const;
 
     public:
-        PresidentialPardonForm(const std::string& target);
-        PresidentialPardonForm(const PresidentialPardonForm& other);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
-        ~PresidentialPardonForm();
+        ShrubberyCreationForm(const std::string& target);
+        ShrubberyCreationForm(const ShrubberyCreationForm& other);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+        ~ShrubberyCreationForm();
 
 };
 

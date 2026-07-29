@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/04/06 19:11:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/07/29 11:25:10 by pbongiov         ###   ########.fr        #
+#    Created: 2026/07/29 13:33:56 by pbongiov          #+#    #+#              #
+#    Updated: 2026/07/29 15:13:27 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = convert
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp ScalarConverter.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

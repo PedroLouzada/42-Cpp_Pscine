@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 11:44:25 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/07/29 11:44:26 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/07/29 11:45:55 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/07/29 11:45:56 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define BUREUCRAT_HPP
 
 # include <iostream>
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -31,6 +34,9 @@ class Bureaucrat
         int getGrade(void) const;
         void incrementGrade(int value);
         void decrementGrade(int value);
+        void signAForm(AForm& form);
+
+        void executeForm(AForm const & form) const;
 
         class GradeTooHighException : public std::exception
         {

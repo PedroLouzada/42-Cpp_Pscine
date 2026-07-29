@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/29 11:44:33 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/07/29 11:44:34 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/07/29 11:45:52 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/07/29 11:45:53 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureau)
     return (out);
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signAForm(AForm& form)
 {
     try{
         form.beSigned(*this);
@@ -80,6 +80,18 @@ void Bureaucrat::signForm(Form& form)
     }
     catch(std::exception& e){
         std::cerr << _name << " couldn't sign " << form.getName() << " because "
+            << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    try{
+        form.execute(*this);
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << _name << " coulsn't execute " << form.getName() << " beacuse "
             << e.what() << std::endl;
     }
 }
