@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 14:02:04 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/07/29 16:03:31 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/07/30 16:00:24 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,6 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
         
 ScalarConverter::~ScalarConverter(){}
 
-static bool isChar(const std::string& arg)
-{
-    (void)arg;
-    return false;
-}
-
-static bool isInt(const std::string& arg)
-{
-    (void)arg;
-    return true;
-}
-
-static bool isFloat(const std::string& arg)
-{
-    (void)arg;
-    return false;
-}
-
-static bool isDouble(const std::string& arg)
-{
-    (void)arg;
-    return true;
-}
-
 int checkInput(const std::string& arg)
 {
     int types[4] = {CHAR, INT, FLOAT, DOUBLE};
@@ -64,25 +40,15 @@ int checkInput(const std::string& arg)
     return (ERR);
 }
 
-void convertChar(char& c, int& i, float& f, double& d, const std::string& arg)
-{
-    c = arg[0];
-    i = static_cast<int>(arg[0]);
-    f = static_cast<float>(arg[0]);
-    d = static_cast<double>(arg[0]);
-}
-
-void convertInt(char& c, int& i, float& f, double& d, const std::string& arg)
-{
-    i = std::atoi(arg.c_str());
-    c = static_cast<char>(i);
-    f = static_cast<float>(i);
-    d = static_cast<double>(i);
-}
-
 void printList(char& c, int& i, float& f, double& d)
 {
-    std::cout << "char: " << c << "\nint: " << i << "\nfloat: " << f << "\ndouble: " <<  d << std::endl;
+    std::string temp = '\'' + std::string(1, c) + '\'';
+    
+    if (!std::isprint(c))
+        temp = "Non displayable";
+    
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "char: " << temp << "\nint: " << i << "\nfloat: " << f << "f\ndouble: " <<  d << std::endl;
 }
 
 void convertAll(int type, const std::string& arg)
@@ -100,13 +66,36 @@ void convertAll(int type, const std::string& arg)
         
         case INT:
             convertInt(c, i, f, d, arg);
+            break;
+
+        default:
+            convertFloat(c, i, f, d, arg);
     }
 
     printList(c, i, f, d);
 }
 
+bool checkExceptions(const std::string& arg)
+{
+    if (arg == "+inf" || arg == "-inf" || arg == "nan")
+    {
+        printDoubleException(arg);
+        return true;
+    }
+    else if (arg == "+inff" || arg == "-inff" || arg == "nanf")
+    {
+        printFloatException(arg);
+        return true;
+    }
+
+    return false;
+}
+
 void ScalarConverter::convert(const std::string& arg)
 {
+    if (checkExceptions(arg))
+        return ;
+    
     int type = checkInput(arg);
 
     if (type == ERR)

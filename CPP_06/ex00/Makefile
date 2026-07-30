@@ -6,13 +6,13 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/29 13:33:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/07/29 15:13:27 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/07/30 14:48:47 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = convert
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp ScalarConverter.cpp utils.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
