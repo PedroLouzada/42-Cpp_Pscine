@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 16:53:37 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/08 15:02:37 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/08/08 15:14:58 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/08/08 15:23:14 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef A_HPP
+# define A_HPP
 
-# include <stdint.h>
-# include "Data.hpp"
+# include "Base.hpp"
 
-class Serializer
-{
-    private:
-        Serializer();
-        Serializer(const Serializer& other);
-        Serializer& operator=(const Serializer& other);
-        ~Serializer();
-
-    public:
-        static uintptr_t serialize(Data* ptr);
-        static Data* deserialize(uintptr_t raw);
-};
+class A : public Base {};
 
 #endif

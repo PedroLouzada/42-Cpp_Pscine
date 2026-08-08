@@ -5,28 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 16:53:02 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/08 15:11:44 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/08/08 15:49:49 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/08/08 16:11:41 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Serializer.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 int main()
-{
-    Data* p = new Data;
+{   
+    Base base;
+    Base* ptr = base.generate();
+    Base& ref = *ptr;
 
-    p->value = 15;
+    base.identify(ptr);
+    std::cout << "----------------------------------------" << std::endl;
     
-    std::cout << "Data value: " << p->value << std::endl;
+    base.identify(ref);
+    std::cout << "----------------------------------------" << std::endl;
     
-    uintptr_t serialized = Serializer::serialize(p);
-    std::cout << "Data Serialized :" << serialized << std::endl;
+    base.identify(NULL);
+    std::cout << "----------------------------------------" << std::endl;
 
-    Data* n = Serializer::deserialize(serialized);
-
-    std::cout << "Data Deserialized :" << n->value << std::endl;
-
-    delete (p);
+    delete(ptr);
 }

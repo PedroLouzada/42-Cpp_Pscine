@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 14:02:01 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/07/30 16:00:37 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:19:46 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <cstdlib>
 # include <iomanip>
-#include "utils.h"
+# include "utils.h"
 
 class ScalarConverter
 {
@@ -24,7 +24,7 @@ class ScalarConverter
         ScalarConverter();
         ScalarConverter(const ScalarConverter& other);
         ScalarConverter& operator=(const ScalarConverter& other);
-        virtual ~ScalarConverter() = 0;
+        ~ScalarConverter();
 
     public:
         static void convert(const std::string& arg);
