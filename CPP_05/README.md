@@ -1,4 +1,4 @@
-# CPP05 — Repetition, Exceptions & Bureaucracy
+# CPP05 — Repetition and Exceptions
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="150" />
 
@@ -124,8 +124,6 @@ make re     # Rebuild everything
 CPP05 makes failure paths impossible to ignore.
 
 The form system feels like a small authorization workflow — immutable requirements, signed state, role-based execution, specialized actions, and errors that must cross several class boundaries without losing their meaning. The `Intern` completes that system by separating object creation from object usage and forcing ownership to be handled deliberately.
-
-If CPP04 teaches you to think in **contracts**, CPP05 teaches you to think in **failure paths**.
 
 ---
 
