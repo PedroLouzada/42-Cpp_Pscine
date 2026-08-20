@@ -19,6 +19,11 @@ Each module builds on the previous one, progressively covering the core concepts
 | [CPP02](./CPP_02) | Ad-hoc polymorphism, operator overloading, Orthodox Canonical Form |
 | [CPP03](./CPP_03) | Inheritance |
 | [CPP04](./CPP_04) | Subtype Polymorphism, Abstract Classes, and Interfaces |
+| [CPP05](./CPP_05) | Repetition and Exceptions |
+| [CPP06](./CPP_06) | C++ Casts |
+| [CPP07](./CPP_07) | C++ Templates |
+| [CPP08]() | 🚧 Work in Progress 🚧 |
+| [CPP09]() | 🚧 Work in Progress 🚧 |
 
 ---
 
