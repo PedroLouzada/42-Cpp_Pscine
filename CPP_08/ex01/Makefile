@@ -12,7 +12,7 @@
 
 NAME = span
 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
