@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 17:58:02 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/25 17:58:03 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/08/25 18:36:53 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/08/25 18:42:11 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
-# include <algorithm>
 
-template <typename T>
-typename T::const_iterator easyFind(const T& container, int n)
-{
-    typename T::const_iterator it;
 
-    it = std::find(container.begin(), container.end(), n);
-    if (it == container.end())
-        throw std::exception();
-
-    return it;
-}
-
-# endif
+#endif

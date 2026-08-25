@@ -6,11 +6,11 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/29 13:33:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/08/25 17:58:14 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/08/25 18:36:19 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = span
+NAME = abomination
 
 SRCS = main.cpp Span.cpp
 
