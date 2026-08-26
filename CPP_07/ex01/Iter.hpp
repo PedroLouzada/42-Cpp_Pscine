@@ -15,8 +15,8 @@
 
 # include <iostream>
 
-template <typename Iter>
-void iter(Iter* array, const size_t len, void (*func)(Iter&))
+template <typename Iter, typename T>
+void iter(Iter* array, const size_t len, void (*func)(T&))
 {
     for (size_t i = 0; i < len; ++i)
         func(array[i]);
