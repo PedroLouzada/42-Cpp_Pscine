@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 18:36:37 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/26 14:00:59 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/08/26 14:05:29 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,17 @@ int main()
     lst.push_back(0);
 
     std::cout << "MutantStack: ";
-    for (MutantStack<int>::iterator msIt = mstack.begin();
-         msIt != mstack.end();
-         ++msIt)
+    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
     {
-        std::cout << *msIt << " ";
+        std::cout << *it << " ";
     }
 
     std::cout << std::endl;
 
     std::cout << "std::list:   ";
-    for (std::list<int>::iterator listIt = lst.begin();
-         listIt != lst.end();
-         ++listIt)
+    for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it)
     {
-        std::cout << *listIt << " ";
+        std::cout << *it << " ";
     }
 
     std::cout << std::endl;
