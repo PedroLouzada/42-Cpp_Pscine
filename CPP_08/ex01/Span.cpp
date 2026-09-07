@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 17:58:17 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/25 17:58:18 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/09/07 16:37:28 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,7 @@ int Span::shortestSpan() const
 
 int Span::longestSpan() const
 {
-    if (_filled < 2)
-        throw std::exception();
-
-    std::vector<int> sorted(_v);
-    std::sort(sorted.begin(), sorted.end());
-
-    std::vector<int> diff(sorted.size());
-    std::adjacent_difference(sorted.begin(), sorted.end(), diff.begin());
-
-    return (*std::max_element(diff.begin() + 1, diff.end()));
+    return (*std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end()));
 }
 
 void Span::printContainer()

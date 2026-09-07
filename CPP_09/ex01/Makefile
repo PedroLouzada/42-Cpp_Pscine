@@ -6,20 +6,19 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/29 13:33:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/09/07 14:10:55 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/08/26 13:56:40 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = span
+NAME = mutant
 
-SRCS = main.cpp Span.cpp
+SRCS = main.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
-DEPS = $(OBJS:.o=.d)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
@@ -39,5 +38,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
--include $(DEPS)

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 17:58:02 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/09/07 14:10:15 by pbongiov         ###   ########.fr       */
+/*   Created: 2026/09/07 11:01:43 by pbongiov          #+#    #+#             */
+/*   Updated: 2026/09/07 12:47:05 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include "BitcoinExchange.hpp"
 
-# include <algorithm>
-
-template <typename T>
-typename T::const_iterator easyFind(const T& container, int n)
+int errorMsg(const std::string& msg)
 {
-    typename T::const_iterator it;
-
-    it = std::find(container.begin(), container.end(), n);
-    if (it == container.end())
-        throw std::exception();
-
-    return it;
+    std::cerr << "Error: " << msg << std::endl;
+    return (1);
 }
 
-# endif
+int main(int ac, char **av)
+{
+    if (ac != 2)
+        return errorMsg("could not open file.");
+    
+    BitcoinExchange obj;
+    obj.parseFile(av[1]);
+}

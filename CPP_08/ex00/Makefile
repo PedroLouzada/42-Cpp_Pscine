@@ -6,7 +6,7 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/29 13:33:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/08/14 19:34:17 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/09/07 14:09:17 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ SRCS = main.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+DEPS = $(OBJS:.o=.d)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 
 all: $(NAME)
 
@@ -38,3 +39,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+-include $(DEPS)

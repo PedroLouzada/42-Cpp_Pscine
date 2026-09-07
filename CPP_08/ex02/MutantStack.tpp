@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 13:45:31 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/26 14:13:39 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/09/07 14:12:26 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ template<typename T>
 MutantStack<T>::MutantStack(){}
 
 template<typename T>
-MutantStack<T>::MutantStack(const MutantStack& other) : std::stack(other) {}
+MutantStack<T>::MutantStack(const MutantStack& other) : std::stack<T>(other) {}
 
 template<typename T>
 MutantStack<T>& MutantStack<T>::operator=(const MutantStack& other)
