@@ -16,12 +16,14 @@
 # include <map>
 # include <iostream>
 # include <fstream>
+# include <climits>
 
 class BitcoinExchange : public std::multimap<std::string, std::string>
 {
     private:
+        std::map<std::string, std::string> _data;
         void initMap(std::ifstream& file, std::string& line);
-        void printValue();
+        void initDatabase(std::ifstream& dataFile);
         
     public:
         BitcoinExchange();
@@ -30,7 +32,9 @@ class BitcoinExchange : public std::multimap<std::string, std::string>
         ~BitcoinExchange();
 
         bool parseFile(const std::string& fileName);
-        bool convertCoin();
+        bool convertCoin(std::multimap<std::string, std::string>::iterator& input);
+        void printValue();
+
 };
 
 #endif

@@ -25,4 +25,8 @@ int main(int ac, char **av)
     
     BitcoinExchange obj;
     obj.parseFile(av[1]);
+    
+    std::multimap<std::string, std::string>::iterator it;
+    for (it = obj.begin(); it != obj.end(); ++it)
+        obj.convertCoin(it);
 }
