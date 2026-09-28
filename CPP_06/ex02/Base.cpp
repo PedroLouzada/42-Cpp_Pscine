@@ -74,7 +74,7 @@ void Base::identify(Base& p)
         A a = dynamic_cast<A&>(p);
         std::cout << "Base class type A" << std::endl;
     }
-    catch(std::exception& e){}
+    catch(std::exc  eption& e){}
 
     try{
         B b = dynamic_cast<B&>(p);

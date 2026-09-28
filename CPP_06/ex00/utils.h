@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 14:46:37 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/08 16:40:38 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/08/08 17:09:47 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ bool isFloat(const std::string& arg);
 bool isDouble(const std::string& arg);
 void printFloatException(const std::string& arg);
 void printDoubleException(const std::string& arg);
+void overDouble(void);
+void overFloat(const std::string& arg);
+void overInt(const std::string& arg);
 
 #endif

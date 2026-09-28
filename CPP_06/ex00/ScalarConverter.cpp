@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 14:02:04 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/08 16:40:46 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/08/08 17:18:44 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,28 @@ bool checkExceptions(const std::string& arg)
     return false;
 }
 
+bool checkOverflow(const std::string& arg)
+{
+    double n = std::atof(arg.c_str());
+    
+    if (n > DBL_MAX || n < -DBL_MAX)
+    {
+        overDouble();
+        return true;
+    }
+    else if (n > FLT_MAX || n < -FLT_MAX)
+    {
+        overFloat(arg);
+        return true;
+    }
+    else if (n > INT_MAX || n < INT_MIN)
+    {
+        overInt(arg);
+        return true;
+    }
+    return false;
+}
+
 void ScalarConverter::convert(const std::string& arg)
 {
     if (checkExceptions(arg))
@@ -103,6 +125,8 @@ void ScalarConverter::convert(const std::string& arg)
         std::cerr << "Invalid parameter, conversion cannot proceed." << std::endl;
         return ;
     }
+    else if (type != CHAR && checkOverflow(arg))
+        return ;
     
     convertAll(type, arg);
 }

@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:01:41 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/09/07 17:02:35 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/09/28 18:29:17 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,25 +90,37 @@ void BitcoinExchange::printValue() //debug only
 static bool isValidDate(std::multimap<std::string, std::string>::iterator& input)
 {
     if (input->second == "\2")
-        return 0;
+        return false;
 
-    int date[3];
-    size_t begin = input->first.find('-');
-    size_t final = input->first.find_last_of('-');
-    if (begin == std::string::npos || begin != 4 || final != 7)
-        return 0;
+    const std::string& s = input->first;
+    if (s.size() != 10 || s[4] != '-' || s[7] != '-')
+        return false;
 
-    date[0] = atoi(input->first.substr(0, begin).c_str());
-    date[1] = atoi(input->first.substr(begin + 1, input->first.size() - final - 1).c_str());
-    date[2] = atoi(input->first.substr(final + 1, input->first.size() - 1).c_str());
+    for (size_t i = 0; i < s.size(); ++i)
+        if (i != 4 && i != 7 && (s[i] < '0' || s[i] > '9'))
+            return false;
 
-    return 1;
+    int year  = std::atoi(s.substr(0, 4).c_str());
+    int month = std::atoi(s.substr(5, 2).c_str());
+    int day   = std::atoi(s.substr(8, 2).c_str());
+
+    if (year == 0 || month < 1 || month > 12 || day < 1)
+        return false;
+
+    const int daysInMonth[] = {31, 28, 31, 30, 31, 30,
+                               31, 31, 30, 31, 30, 31};
+    int maxDay = daysInMonth[month - 1];
+    if (month == 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+        ++maxDay;
+
+    return (day <= maxDay);
 }
+
 
 bool BitcoinExchange::convertCoin(std::multimap<std::string, std::string>::iterator& input)
 {
     if (!isValidDate(input))
-        return errorMsg("bad input => ");
+        return errorMsg("bad input => " + input->first);
     
     std::map<std::string, std::string>::iterator it;
     it = _data.lower_bound(input->first);
@@ -128,7 +140,8 @@ bool BitcoinExchange::convertCoin(std::multimap<std::string, std::string>::itera
     if (value < 0)
         return errorMsg("not a positive number.");
 
-    std::cout << input->first <<  std::endl;
+    double currency = std::atof(it->second.c_str());
+    std::cout << input->first << " => " << value << " = " << value * currency << std::endl;
 
     return 0;
 }

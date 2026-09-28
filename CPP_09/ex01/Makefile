@@ -6,13 +6,13 @@
 #    By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/29 13:33:56 by pbongiov          #+#    #+#              #
-#    Updated: 2026/08/26 13:56:40 by pbongiov         ###   ########.fr        #
+#    Updated: 2026/09/28 19:12:52 by pbongiov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = mutant
+NAME = RPN
 
-SRCS = main.cpp
+SRCS = main.cpp RPN.cpp
 
 OBJ_DIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

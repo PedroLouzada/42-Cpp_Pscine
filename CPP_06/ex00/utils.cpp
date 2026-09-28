@@ -6,7 +6,7 @@
 /*   By: pbongiov <pbongiov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 14:47:11 by pbongiov          #+#    #+#             */
-/*   Updated: 2026/08/08 16:40:32 by pbongiov         ###   ########.fr       */
+/*   Updated: 2026/08/08 17:16:12 by pbongiov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,23 @@ void printFloatException(const std::string& arg)
     std::string temp(arg);
 
     std::cout << "char: impossible\nint: impossible\nfloat: " << temp << "\ndouble: " << temp.erase(temp.size() - 1)  << std::endl;
+}
+
+void overDouble(void)
+{
+    std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible"  << std::endl;
+}
+
+void overFloat(const std::string& arg)
+{   
+    double value = std::atof(arg.c_str());
+    
+    std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: " << value << std::endl;
+}
+
+void overInt(const std::string& arg)
+{
+    double value = std::atof(arg.c_str());
+    
+    std::cout << "char: impossible\nint: impossible\nfloat: " << static_cast<float>(value) << "f\ndouble: " << value << std::endl;
 }
