@@ -16,12 +16,18 @@ int errorMsg(const std::string& msg);
 
 BitcoinExchange::BitcoinExchange(){};
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) { *this = other; }
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+    : std::multimap<std::string, std::string>(other),
+      _data(other._data)
+{}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 {
     if (this != &other)
-        *this = other;
+    {
+        std::multimap<std::string, std::string>::operator=(other);
+        _data = other._data;
+    }
 
     return *this;
 }
@@ -32,12 +38,14 @@ void BitcoinExchange::initMap(std::ifstream& file, std::string& line)
 {
     while (std::getline(file, line))
     {
-        size_t pos = line.find("|");
+        if (line.size() <= 13 || line.substr(10, 3) != " | ")
+        {
+            this->insert(std::make_pair(line, "\2"));
+            continue;
+        }
 
-        std::string key = line.substr(0, pos - 1);
-        std::string value = line.substr(pos + 2);
-        if (pos == std::string::npos)
-            value = "\2";
+        std::string key = line.substr(0, 10);
+        std::string value = line.substr(13);
 
         this->insert(std::make_pair(key, value));
     }
@@ -66,12 +74,17 @@ bool BitcoinExchange::parseFile(const std::string& fileName)
 
     std::ifstream dataFile("data.csv");
     if (!dataFile.is_open())
-        return errorMsg("Could not open data file");
+        return errorMsg("could not open data file");
 
     std::string line;
-    std::getline(inputFile, line);
+
+    if (!std::getline(inputFile, line))
+        return errorMsg("input file is empty.");
+
     if (line.empty() || line != "date | value")
         return errorMsg("expected \"date | value\" in the beginning of the file.");
+
+    
 
     this->initMap(inputFile, line);
     this->initDatabase(dataFile);
@@ -133,7 +146,13 @@ bool BitcoinExchange::convertCoin(std::multimap<std::string, std::string>::itera
         --it;
     }
     
-    double value = std::atof(input->second.c_str());
+    std::istringstream stream(input->second);
+    double value = 0;
+
+    stream >> std::noskipws >> value;
+
+    if (stream.fail() || !stream.eof() || value != value)
+        return errorMsg("bad input => " + input->first);
 
     if (value > 1000)
         return errorMsg("too large number.");

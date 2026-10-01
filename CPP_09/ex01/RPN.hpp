@@ -19,10 +19,10 @@
 class Rpn : public std::stack<int>
 {
     public:
-        // Rpn();
-        // Rpn(const Rpn& other);
-        // Rpn& operator=(const Rpn& other);
-        // ~Rpn();
+        Rpn();
+        Rpn(const Rpn& other);
+        Rpn& operator=(const Rpn& other);
+        ~Rpn();
     
         bool resolve(const std::string& arg);
 };

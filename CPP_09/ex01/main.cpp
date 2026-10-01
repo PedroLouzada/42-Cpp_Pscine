@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-    if (ac != 2)
+    if (ac != 2 || std::string(av[1]).empty())
     {
         std::cerr << "Program requires 2 arguments" << std::endl;
         return 1;

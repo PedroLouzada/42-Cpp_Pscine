@@ -17,6 +17,8 @@
 # include <iostream>
 # include <fstream>
 # include <climits>
+# include <sstream>
+# include <cstdlib>
 
 class BitcoinExchange : public std::multimap<std::string, std::string>
 {

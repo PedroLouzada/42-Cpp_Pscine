@@ -24,7 +24,8 @@ int main(int ac, char **av)
         return errorMsg("could not open file.");
     
     BitcoinExchange obj;
-    obj.parseFile(av[1]);
+    if (obj.parseFile(av[1]))
+        return 1;
     
     std::multimap<std::string, std::string>::iterator it;
     for (it = obj.begin(); it != obj.end(); ++it)

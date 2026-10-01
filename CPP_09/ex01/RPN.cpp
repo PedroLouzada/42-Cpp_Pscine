@@ -12,6 +12,20 @@
 
 #include "RPN.hpp"
 
+Rpn::Rpn() {};
+
+Rpn::Rpn(const Rpn& other) : std::stack<int>(other) {}
+
+Rpn& Rpn::operator=(const Rpn& other)
+{
+    if (this != &other)
+        std::stack<int>::operator=(other);
+
+    return *this;
+}
+
+Rpn::~Rpn() {}
+
 bool errorMsg(const std::string& msg)
 {
     std::cerr << msg << std::endl;
@@ -42,7 +56,6 @@ int operation(int n1, int n2, char c)
 
 bool Rpn::resolve(const std::string& arg)
 {
-    int res = 0;
     bool flag = false;
     
     for (size_t i = 0; i < arg.size(); ++i)
@@ -52,23 +65,26 @@ bool Rpn::resolve(const std::string& arg)
             if (this->size() < 2)
                 return errorMsg("Error on expression: Not enought numbers to operation " + std::string(1, arg[i]));
 
-            int n1 = this->top();
-            this->pop();
-            
-            int n2 = this->top();
-            this->pop();
-            
-            if (arg[i] == '/' && n2 == 0)
-                return errorMsg("Could not make a division by 0");
+            if (arg[i + 1] && arg[i + 1] != ' ')
+                return errorMsg("Wrong expression format");
 
-            res += operation(n1, n2, arg[i]);
+            int right = this->top();
+            this->pop();
+            
+            int left = this->top();
+            this->pop();
+
+            if (arg[i] == '/' && right == 0)
+                return errorMsg("Division by zero");
+
+            this->push(operation(left, right, arg[i]));
             flag = false;
             continue;
         }
 
         if (std::isdigit(arg[i]))
         {
-            if (this->size() >= 2)
+            if (arg[i + 1] && (std::isdigit(arg[i + 1]) || arg[i + 1] != ' '))
                 return errorMsg("Only support numbers between 0 and 9");
                 
             this->push(arg[i] - '0');
@@ -79,7 +95,7 @@ bool Rpn::resolve(const std::string& arg)
         if (arg[i] == ' ')
         {
             if (flag == true)
-                return ("Wrong format of expression. Should have one space between numbers");
+                return errorMsg("Wrong format of expression. Should have one space between numbers");
 
             flag = true;
             continue;
@@ -88,7 +104,10 @@ bool Rpn::resolve(const std::string& arg)
         return errorMsg("Character type not supported");
     }
 
-    std::cout << res << std::endl;
+    if (this->size() != 1)
+        return errorMsg("Wrong expression format");
+
+    std::cout << this->top() << std::endl;
     
     return 0;
 }
