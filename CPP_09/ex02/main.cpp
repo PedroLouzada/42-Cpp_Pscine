@@ -27,4 +27,6 @@ int main(int ac, char **av)
         if (obj.parse(av[i]))
             return 1;
     }
+
+    obj.fordJhonson();
 }

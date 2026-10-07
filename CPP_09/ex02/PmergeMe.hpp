@@ -14,14 +14,14 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <sstream>
 # include <list>
 # include <queue>
 
 class PmergeMe
 {
     private:
-        std::list<int> _list;
-        std::deque<int> _deque;
+        std::vector<int> _values;
     
     public:
         PmergeMe();
@@ -29,7 +29,8 @@ class PmergeMe
         PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe();
 
-        bool parse(std::string& arg);
+        bool parse(const std::string& arg);
+        void fordJhonson(std::vector<int>& values);
 };
 
 #endif
