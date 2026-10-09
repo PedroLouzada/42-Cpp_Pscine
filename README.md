@@ -22,8 +22,8 @@ Each module builds on the previous one, progressively covering the core concepts
 | [CPP05](./CPP_05) | Repetition and Exceptions |
 | [CPP06](./CPP_06) | C++ Casts |
 | [CPP07](./CPP_07) | C++ Templates |
-| [CPP08]() | 🚧 Work in Progress 🚧 |
-| [CPP09]() | 🚧 Work in Progress 🚧 |
+| [CPP08](./CPP_08) | Templated Containers, Iterators and Algorithms |
+| [CPP09](./CPP_09) | STL |
 
 ---
 
