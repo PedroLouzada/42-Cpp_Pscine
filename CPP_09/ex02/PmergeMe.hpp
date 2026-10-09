@@ -10,18 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PMEGEME_HPP
+#ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
 # include <iostream>
 # include <sstream>
-# include <list>
-# include <queue>
+# include <vector>
+# include <deque>
+# include <algorithm>
+# include <ctime>
+# include <iomanip>
 
 class PmergeMe
 {
     private:
-        std::vector<int> _values;
+        std::vector<int> _vector;
+        std::deque<int> _deque;
+        bool _oddSequence;
+        int _straggler;
+
+        void insertLosersVector(std::vector<int>& sorted, std::vector<std::pair<int, int> >& pairs);
+        void insertLosersDeque(std::deque<int>& sorted, std::deque<std::pair<int, int> >& pairs);
     
     public:
         PmergeMe();
@@ -30,7 +39,27 @@ class PmergeMe
         ~PmergeMe();
 
         bool parse(const std::string& arg);
-        void fordJhonson(std::vector<int>& values);
+        std::vector<int> fordJhonsonVector(std::vector<int>& values);
+        std::deque<int> fordJhonsonDeque(std::deque<int>& values);
+
+        const std::vector<int>& getVector() const;
+        const std::deque<int>& getDeque() const;
+
+        template <typename Container>
+        void print_container(const Container& values)
+        {
+            typename Container::const_iterator it = values.begin();
+            while (it != values.end())
+            {
+                std::cout << *it;
+                if (it + 1 != values.end())
+                    std::cout << " ";
+
+                ++it;
+            }
+            std::cout << std::endl;
+        }
+
 };
 
 #endif
