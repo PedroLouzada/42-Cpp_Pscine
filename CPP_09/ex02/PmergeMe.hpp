@@ -26,11 +26,11 @@ class PmergeMe
     private:
         std::vector<int> _vector;
         std::deque<int> _deque;
-        bool _oddSequence;
-        int _straggler;
 
-        void insertLosersVector(std::vector<int>& sorted, std::vector<std::pair<int, int> >& pairs);
-        void insertLosersDeque(std::deque<int>& sorted, std::deque<std::pair<int, int> >& pairs);
+        void insertLosersVector(std::vector<int>& sorted, std::vector<std::pair<int, int> >& pairs,
+                bool hasStraggler, int straggler);
+        void insertLosersDeque(std::deque<int>& sorted, std::deque<std::pair<int, int> >& pairs,
+                bool hasStraggler, int straggler);
     
     public:
         PmergeMe();

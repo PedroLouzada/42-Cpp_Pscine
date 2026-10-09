@@ -12,10 +12,9 @@
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() : _oddSequence(0) {}
+PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(const PmergeMe& other) : _vector(other._vector), _deque(other._deque),
-        _oddSequence(other._oddSequence), _straggler(other._straggler) {}
+PmergeMe::PmergeMe(const PmergeMe& other) : _vector(other._vector), _deque(other._deque) {}
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 {
@@ -23,8 +22,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
     {
         _vector = other._vector;
         _deque = other._deque;
-        _oddSequence = other._oddSequence;
-        _straggler = other._straggler;
     }
 
     return *this;
@@ -40,6 +37,9 @@ bool errorMsg(const std::string& msg)
 
 bool PmergeMe::parse(const std::string& str)
 {
+    if (str.find_first_not_of(" \t\n\r\f\v") == std::string::npos)
+        return errorMsg("Only positive integers supported");
+
     std::istringstream in(str);
     std::string buf;
     std::vector<int> parsed;
@@ -111,10 +111,11 @@ std::vector<int> getJacobOrderVector(int size)
     return (order);
 }
 
-void PmergeMe::insertLosersVector(std::vector<int>& sorted, std::vector<std::pair<int, int> >& pairs)
+void PmergeMe::insertLosersVector(std::vector<int>& sorted, std::vector<std::pair<int, int> >& pairs,
+        bool hasStraggler, int straggler)
 {
     int loserSize = pairs.size();
-    if (_oddSequence)
+    if (hasStraggler)
         ++loserSize;
 
     int winner, loser;
@@ -133,7 +134,7 @@ void PmergeMe::insertLosersVector(std::vector<int>& sorted, std::vector<std::pai
         }
         else
         {
-            loser = _straggler;
+            loser = straggler;
             binarySearch = sorted.end();
         }
 
@@ -156,17 +157,17 @@ std::vector<int> PmergeMe::fordJhonsonVector(std::vector<int>& values)
         else
             pairs.push_back(std::make_pair(values[i], values[i + 1]));
     }
-    if (values.size() % 2)
-    {
-        _oddSequence = true;
-        _straggler = values.back();
-    }
+
+    bool hasStraggler = values.size() % 2;
+    int straggler = 0;
+    if (hasStraggler)
+        straggler = values.back();
 
     std::vector<int> winners;
     for (size_t i = 0; i < pairs.size(); ++i)
         winners.push_back(pairs[i].second);
 
-    fordJhonsonVector(winners);
+    winners = fordJhonsonVector(winners);
     sortPairsVector(pairs, winners);
 
     std::vector<int> sorted;
@@ -174,7 +175,7 @@ std::vector<int> PmergeMe::fordJhonsonVector(std::vector<int>& values)
     for (size_t i = 0; i < pairs.size(); ++i)
         sorted.push_back(pairs[i].second);
 
-    insertLosersVector(sorted, pairs);
+    insertLosersVector(sorted, pairs, hasStraggler, straggler);
     
     return (sorted);
 }
@@ -225,10 +226,11 @@ std::deque<int> getJacobOrderDeque(int size)
     return (order);
 }
 
-void PmergeMe::insertLosersDeque(std::deque<int>& sorted, std::deque<std::pair<int, int> >& pairs)
+void PmergeMe::insertLosersDeque(std::deque<int>& sorted, std::deque<std::pair<int, int> >& pairs,
+        bool hasStraggler, int straggler)
 {
     int loserSize = pairs.size();
-    if (_oddSequence)
+    if (hasStraggler)
         ++loserSize;
 
     int winner, loser;
@@ -247,7 +249,7 @@ void PmergeMe::insertLosersDeque(std::deque<int>& sorted, std::deque<std::pair<i
         }
         else
         {
-            loser = _straggler;
+            loser = straggler;
             binarySearch = sorted.end();
         }
 
@@ -270,17 +272,17 @@ std::deque<int> PmergeMe::fordJhonsonDeque(std::deque<int>& values)
         else
             pairs.push_back(std::make_pair(values[i], values[i + 1]));
     }
-    if (values.size() % 2)
-    {
-        _oddSequence = true;
-        _straggler = values.back();
-    }
+
+    bool hasStraggler = values.size() % 2;
+    int straggler = 0;
+    if (hasStraggler)
+        straggler = values.back();
 
     std::deque<int> winners;
     for (size_t i = 0; i < pairs.size(); ++i)
         winners.push_back(pairs[i].second);
 
-    fordJhonsonDeque(winners);
+    winners = fordJhonsonDeque(winners);
     sortPairsDeque(pairs, winners);
 
     std::deque<int> sorted;
@@ -288,7 +290,7 @@ std::deque<int> PmergeMe::fordJhonsonDeque(std::deque<int>& values)
     for (size_t i = 0; i < pairs.size(); ++i)
         sorted.push_back(pairs[i].second);
 
-    insertLosersDeque(sorted, pairs);
+    insertLosersDeque(sorted, pairs, hasStraggler, straggler);
     
     return (sorted);
 }
