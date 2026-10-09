@@ -79,7 +79,6 @@ bool BitcoinExchange::parseFile(const std::string& fileName)
         return errorMsg("expected \"date | value\" in the beginning of the file.");
 
     
-
     this->initMap(inputFile, line);
     this->initDatabase(dataFile);
     
@@ -103,8 +102,10 @@ static bool isValidDate(const std::pair<std::string, std::string>& input)
         return false;
 
     for (size_t i = 0; i < s.size(); ++i)
-        if (i != 4 && i != 7 && (s[i] < '0' || s[i] > '9'))
+    {
+        if ((i != 4 && i != 7) && (s[i] < '0' || s[i] > '9'))
             return false;
+    }
 
     int year  = std::atoi(s.substr(0, 4).c_str());
     int month = std::atoi(s.substr(5, 2).c_str());
@@ -139,12 +140,11 @@ bool BitcoinExchange::convertCoin(const std::pair<std::string, std::string>& inp
         --it;
     }
     
-    std::istringstream stream(input.second);
+    std::istringstream str(input.second);
     double value = 0;
 
-    stream >> std::noskipws >> value;
-
-    if (stream.fail() || !stream.eof() || value != value)
+    str >> std::noskipws >> value;
+    if (str.fail() || !str.eof())
         return errorMsg("bad input => " + input.second);
 
     if (value > 1000)
@@ -153,7 +153,7 @@ bool BitcoinExchange::convertCoin(const std::pair<std::string, std::string>& inp
         return errorMsg("not a positive number.");
 
     double currency = std::atof(it->second.c_str());
-    std::cout << input.first << " => " << value << " * " << currency
+    std::cout << input.first << " => " << value
               << " = " << value * currency << std::endl;
 
     return 0;

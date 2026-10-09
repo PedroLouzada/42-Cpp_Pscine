@@ -53,16 +53,14 @@ bool PmergeMe::parse(const std::string& str)
         }
 
         int value;
-        std::istringstream idk(buf);
+        std::istringstream str(buf);
+        str >> value;
 
-        if (!(idk >> value) || value <= 0)
+        if (str.fail() || !str.eof() || value <= 0)
             return errorMsg("Only positive integers supported");
 
         parsed.push_back(value);
     }
-
-    if (parsed.empty())
-        return errorMsg("Error during parsing");
 
     _vector.insert(_vector.end(), parsed.begin(), parsed.end());
     _deque.insert(_deque.end(), parsed.begin(), parsed.end());

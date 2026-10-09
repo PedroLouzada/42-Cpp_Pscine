@@ -20,7 +20,6 @@
 # include <sstream>
 # include <cstdlib>
 # include <list>
-# include <utility>
 
 class BitcoinExchange
 {
