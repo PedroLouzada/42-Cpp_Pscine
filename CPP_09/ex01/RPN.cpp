@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <sstream>
 
 Rpn::Rpn() {};
 
@@ -56,17 +57,28 @@ int operation(int n1, int n2, char c)
 
 bool Rpn::resolve(const std::string& arg)
 {
-    bool flag = false;
-    
-    for (size_t i = 0; i < arg.size(); ++i)
+    std::istringstream input(arg);
+    std::string token;
+
+    while (input >> token)
     {
-        if (isOperator(arg[i]))
+        if (token.size() != 1)
+        {
+            bool digitsOnly = true;
+            for (size_t i = 0; i < token.size(); ++i)
+            {
+                if (!std::isdigit(token[i]))
+                    digitsOnly = false;
+            }
+            if (digitsOnly)
+                return errorMsg("Only support numbers between 0 and 9");
+            return errorMsg("Wrong expression format");
+        }
+
+        if (isOperator(token[0]))
         {
             if (this->size() < 2)
-                return errorMsg("Error on expression: Not enought numbers to operation " + std::string(1, arg[i]));
-
-            if (arg[i + 1] && arg[i + 1] != ' ')
-                return errorMsg("Wrong expression format");
+                return errorMsg("Error on expression: Not enought numbers to operation " + token);
 
             int right = this->top();
             this->pop();
@@ -74,30 +86,16 @@ bool Rpn::resolve(const std::string& arg)
             int left = this->top();
             this->pop();
 
-            if (arg[i] == '/' && right == 0)
+            if (token[0] == '/' && right == 0)
                 return errorMsg("Division by zero");
 
-            this->push(operation(left, right, arg[i]));
-            flag = false;
+            this->push(operation(left, right, token[0]));
             continue;
         }
 
-        if (std::isdigit(arg[i]))
+        if (std::isdigit(token[0]))
         {
-            if (arg[i + 1] && (std::isdigit(arg[i + 1]) || arg[i + 1] != ' '))
-                return errorMsg("Only support numbers between 0 and 9");
-                
-            this->push(arg[i] - '0');
-            flag = false;
-            continue;
-        }
-
-        if (arg[i] == ' ')
-        {
-            if (flag == true)
-                return errorMsg("Wrong format of expression. Should have one space between numbers");
-
-            flag = true;
+            this->push(token[0] - '0');
             continue;
         }
 

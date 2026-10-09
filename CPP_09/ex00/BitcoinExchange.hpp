@@ -19,11 +19,14 @@
 # include <climits>
 # include <sstream>
 # include <cstdlib>
+# include <list>
+# include <utility>
 
-class BitcoinExchange : public std::multimap<std::string, std::string>
+class BitcoinExchange
 {
     private:
         std::map<std::string, std::string> _data;
+        std::list<std::pair<std::string, std::string> > _input;
         void initMap(std::ifstream& file, std::string& line);
         void initDatabase(std::ifstream& dataFile);
         
@@ -34,7 +37,8 @@ class BitcoinExchange : public std::multimap<std::string, std::string>
         ~BitcoinExchange();
 
         bool parseFile(const std::string& fileName);
-        bool convertCoin(std::multimap<std::string, std::string>::iterator& input);
+        bool convertCoin(const std::pair<std::string, std::string>& input);
+        void processInput();
         void printValue();
 
 };

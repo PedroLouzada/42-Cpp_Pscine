@@ -17,16 +17,15 @@ int errorMsg(const std::string& msg);
 BitcoinExchange::BitcoinExchange(){};
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
-    : std::multimap<std::string, std::string>(other),
-      _data(other._data)
+    : _data(other._data), _input(other._input)
 {}
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 {
     if (this != &other)
     {
-        std::multimap<std::string, std::string>::operator=(other);
         _data = other._data;
+        _input = other._input;
     }
 
     return *this;
@@ -38,16 +37,11 @@ void BitcoinExchange::initMap(std::ifstream& file, std::string& line)
 {
     while (std::getline(file, line))
     {
-        if (line.size() <= 13 || line.substr(10, 3) != " | ")
-        {
-            this->insert(std::make_pair(line, "\2"));
-            continue;
-        }
-
-        std::string key = line.substr(0, 10);
-        std::string value = line.substr(13);
-
-        this->insert(std::make_pair(key, value));
+        size_t separator = line.find(" | ");
+        if (separator == std::string::npos)
+            _input.push_back(std::make_pair(line, "\2"));
+        else
+            _input.push_back(std::make_pair(line.substr(0, separator), line.substr(separator + 3)));
     }
 }
 
@@ -94,18 +88,17 @@ bool BitcoinExchange::parseFile(const std::string& fileName)
 
 void BitcoinExchange::printValue() //debug only
 {
-    std::map<std::string, std::string>::iterator it;
-
-    for (it = this->begin(); it != this->end(); ++it)
+    std::list<std::pair<std::string, std::string> >::const_iterator it;
+    for (it = _input.begin(); it != _input.end(); ++it)
         std::cout << it->first << " | " << it->second << std::endl;
 }
 
-static bool isValidDate(std::multimap<std::string, std::string>::iterator& input)
+static bool isValidDate(const std::pair<std::string, std::string>& input)
 {
-    if (input->second == "\2")
+    if (input.second == "\2")
         return false;
 
-    const std::string& s = input->first;
+    const std::string& s = input.first;
     if (s.size() != 10 || s[4] != '-' || s[7] != '-')
         return false;
 
@@ -130,15 +123,15 @@ static bool isValidDate(std::multimap<std::string, std::string>::iterator& input
 }
 
 
-bool BitcoinExchange::convertCoin(std::multimap<std::string, std::string>::iterator& input)
+bool BitcoinExchange::convertCoin(const std::pair<std::string, std::string>& input)
 {
     if (!isValidDate(input))
-        return errorMsg("bad input => " + input->first);
+        return errorMsg("bad input => " + input.first);
     
     std::map<std::string, std::string>::iterator it;
-    it = _data.lower_bound(input->first);
+    it = _data.lower_bound(input.first);
 
-    if (it == _data.end() || it->first != input->first)
+    if (it == _data.end() || it->first != input.first)
     {
         if (it == _data.begin())
             return errorMsg("no previous date found");
@@ -146,22 +139,29 @@ bool BitcoinExchange::convertCoin(std::multimap<std::string, std::string>::itera
         --it;
     }
     
-    std::istringstream stream(input->second);
+    std::istringstream stream(input.second);
     double value = 0;
 
     stream >> std::noskipws >> value;
 
     if (stream.fail() || !stream.eof() || value != value)
-        return errorMsg("bad input => " + input->first);
+        return errorMsg("bad input => " + input.second);
 
     if (value > 1000)
-        return errorMsg("too large number.");
+        return errorMsg("too large a number.");
     if (value < 0)
         return errorMsg("not a positive number.");
 
     double currency = std::atof(it->second.c_str());
-    std::cout << input->first << " => " << value << " = " << value * currency << std::endl;
+    std::cout << input.first << " => " << value << " * " << currency
+              << " = " << value * currency << std::endl;
 
     return 0;
 }
 
+void BitcoinExchange::processInput()
+{
+    std::list<std::pair<std::string, std::string> >::const_iterator it;
+    for (it = _input.begin(); it != _input.end(); ++it)
+        convertCoin(*it);
+}
